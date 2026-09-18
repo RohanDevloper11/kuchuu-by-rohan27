@@ -264,7 +264,7 @@ export default function App() {
           />
 
           {/* Page-by-Page Main Fullscreen Viewport */}
-          <main className="w-full flex-1 pt-14 pb-14 px-2 sm:px-4 flex items-center justify-center relative overflow-hidden">
+          <main className="w-full flex-1 pt-13 pb-16 px-2 sm:px-4 flex items-center justify-center relative overflow-y-auto overflow-x-hidden">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentPage}
@@ -273,7 +273,7 @@ export default function App() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: direction > 0 ? -50 : 50, scale: 0.98 }}
                 transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-                className="w-full h-full max-w-4xl mx-auto flex items-center justify-center relative"
+                className="w-full h-full max-w-4xl mx-auto flex items-center justify-center relative my-auto py-1"
               >
                 {renderCurrentScene()}
               </motion.div>
