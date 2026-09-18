@@ -42,34 +42,34 @@ export const ChapterFiveQuiz: React.FC<ChapterFiveQuizProps> = ({ questions }) =
   };
 
   return (
-    <div id="quiz" className="w-full h-full flex flex-col justify-between items-center text-center px-3 sm:px-4 py-1 select-none">
+    <div id="quiz" className="w-full h-full flex flex-col justify-between items-center text-center px-2 sm:px-4 py-1 select-none overflow-y-auto">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="space-y-1 max-w-md mx-auto"
+        className="space-y-1 max-w-md mx-auto shrink-0 mb-1"
       >
         <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-[#EADFD5]/70 text-[11px] font-mono text-[#6E5A4E]">
           <HelpCircle className="w-3 h-3 text-[#D9777F]" />
           <span>Chapter 05 • Relationship Quiz</span>
         </span>
 
-        <h2 className="font-serif text-2xl sm:text-3xl text-[#4A3B32] font-semibold leading-tight">
+        <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-[#4A3B32] font-semibold leading-tight">
           Chalo Roshika ki Mummy Ji...
         </h2>
-        <p className="font-handwriting text-xl sm:text-2xl text-[#D9777F] leading-none">
+        <p className="font-handwriting text-lg sm:text-2xl text-[#D9777F] leading-none">
           dekhte hain Rohan ko kitna jaanti ho.
         </p>
       </motion.div>
 
       {/* Quiz Card */}
-      <div className="w-full max-w-sm mx-auto rounded-2xl bg-[#FFFDF9] border border-[#E8B4B8] polaroid-shadow p-4 sm:p-5 paper-pattern my-auto text-left relative overflow-hidden">
+      <div className="w-full max-w-md mx-auto rounded-2xl bg-[#FFFDF9] border border-[#E8B4B8] polaroid-shadow p-3.5 sm:p-5 paper-pattern my-auto text-left relative shadow-sm">
         {!isCompleted ? (
-          <div className="space-y-3">
+          <div className="space-y-2.5 sm:space-y-3">
             {/* Progress Indicator */}
             <div className="flex items-center justify-between text-[11px] font-mono text-[#6E5A4E] pb-2 border-b border-[#EADFD5]">
-              <span>Q{currentQIndex + 1} of {questions.length}</span>
+              <span>Question {currentQIndex + 1} of {questions.length}</span>
               <div className="flex space-x-1">
                 {questions.map((_, i) => (
                   <span
@@ -109,14 +109,14 @@ export const ChapterFiveQuiz: React.FC<ChapterFiveQuizProps> = ({ questions }) =
                       <button
                         key={idx}
                         onClick={() => handleSelectOption(idx)}
-                        className={`w-full text-left p-2.5 rounded-xl border text-xs font-sans transition-all duration-150 flex items-center justify-between ${
+                        className={`w-full text-left p-2.5 rounded-xl border text-xs sm:text-sm font-sans transition-all duration-150 flex items-center justify-between cursor-pointer ${
                           isSelected
-                            ? 'bg-[#F4DCD6]/80 border-[#D9777F] text-[#4A3B32] font-medium shadow-2xs'
-                            : 'bg-[#FAF7F2]/70 border-[#EADFD5] text-[#4A3B32] hover:border-[#E8B4B8]'
+                            ? 'bg-[#F4DCD6]/90 border-[#D9777F] text-[#4A3B32] font-medium shadow-xs'
+                            : 'bg-[#FAF7F2]/80 border-[#EADFD5] text-[#4A3B32] hover:border-[#E8B4B8]'
                         }`}
                       >
-                        <span className="line-clamp-2 leading-tight">{opt.label}</span>
-                        <span className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-2 ${
+                        <span className="leading-snug pr-2">{opt.label}</span>
+                        <span className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-1 ${
                           isSelected
                             ? 'border-[#D9777F] bg-[#D9777F] text-white'
                             : 'border-[#D3C5B8] bg-white'
@@ -128,16 +128,20 @@ export const ChapterFiveQuiz: React.FC<ChapterFiveQuizProps> = ({ questions }) =
                   })}
                 </div>
 
-                {/* Reaction Box */}
+                {/* Reaction Box - Fully visible without truncation */}
                 {selectedOptionIndex !== null && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="p-2.5 rounded-xl bg-[#FAF7F2] border border-[#E8B4B8] flex items-center space-x-2"
+                    initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.25 }}
+                    className="p-3 sm:p-3.5 rounded-xl bg-[#FAF7F2] border border-[#E8B4B8] flex items-start space-x-2.5 shadow-2xs"
                   >
-                    <span className="text-base shrink-0">💬</span>
+                    <span className="text-lg shrink-0 mt-0.5">💬</span>
                     <div className="min-w-0 flex-1">
-                      <p className="font-handwriting text-base sm:text-lg text-[#C85A66] leading-tight truncate">
+                      <div className="text-[10px] font-mono text-[#8C7A6B] uppercase tracking-wider mb-0.5">
+                        Rohan's reaction:
+                      </div>
+                      <p className="font-handwriting text-base sm:text-lg text-[#C85A66] leading-snug break-words whitespace-normal">
                         "{currentQ.options[selectedOptionIndex].rohanResponse}"
                       </p>
                     </div>
@@ -145,13 +149,13 @@ export const ChapterFiveQuiz: React.FC<ChapterFiveQuizProps> = ({ questions }) =
                 )}
 
                 {/* Next button */}
-                <div className="flex justify-end pt-1">
+                <div className="flex justify-end pt-1 sm:pt-2">
                   <button
                     onClick={handleNext}
                     disabled={selectedOptionIndex === null}
-                    className="px-4 py-1.5 rounded-full bg-[#E8B4B8] text-[#4A3B32] font-sans font-medium text-xs hover:bg-[#D9777F] hover:text-white transition-all disabled:opacity-40 disabled:pointer-events-none flex items-center space-x-1.5 active:scale-95"
+                    className="px-5 py-2 rounded-full bg-[#E8B4B8] text-[#4A3B32] font-sans font-medium text-xs sm:text-sm hover:bg-[#D9777F] hover:text-white transition-all disabled:opacity-40 disabled:pointer-events-none flex items-center space-x-1.5 active:scale-95 shadow-xs cursor-pointer"
                   >
-                    <span>{currentQIndex + 1 === questions.length ? 'See Result 🏆' : 'Next →'}</span>
+                    <span>{currentQIndex + 1 === questions.length ? 'See Result 🏆' : 'Next Question →'}</span>
                   </button>
                 </div>
               </motion.div>
