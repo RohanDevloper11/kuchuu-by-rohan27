@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+  }
+
+  /* Completely eliminate all scrollbars */
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Subtle organic paper texture */
+.paper-pattern {
+  background-image: radial-gradient(#d3c5b8 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+/* Soft starry background */
+.starry-sky {
+  background: radial-gradient(ellipse at bottom, #1B1824 0%, #0D0B12 100%);
+}
+
+/* Subtle glow effects */
+.soft-glow-pink {
+  box-shadow: 0 0 35px -5px rgba(232, 180, 184, 0.35);
+}
+
+.soft-glow-gold {
+  box-shadow: 0 0 30px -5px rgba(246, 214, 172, 0.4);
+}
+
+/* Polaroids slight tilt */
+.polaroid-shadow {
+  box-shadow: 0 10px 25px -5px rgba(74, 59, 50, 0.08), 0 8px 10px -6px rgba(74, 59, 50, 0.05);
+}
+
+/* Smooth fade mask for lists */
+.mask-fade-y {
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
