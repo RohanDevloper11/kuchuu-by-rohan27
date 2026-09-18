@@ -238,7 +238,7 @@ export const ROHSIKA_CONFIG: RohsikaConfig = {
       options: [
         { label: "Rohan (takes the blame like a good boy)", rohanResponse: "Respectfully accepts his fate! 'Haan meri galti thi' bolna is peace of mind. 😂" },
         { label: "Vanshika (with puppy eyes)", rohanResponse: "Aww cute attempt... But when you say it, my whole anger melts in 0.2 seconds." },
-        { label: "Nobody... we just start laughing", rohanResponse: "This is the Roshika way! Gussa zyada der tik hi nahi sakta." }
+        { label: "Nobody... we just start laughing", rohanResponse: "Hamara gussa zyada der tik hi nahi sakta. Bas ek look aur smile aa jaati hai." }
       ]
     },
     {
@@ -265,7 +265,7 @@ export const ROHSIKA_CONFIG: RohsikaConfig = {
       options: [
         { label: "Kuchuu with Rohan", rohanResponse: "Accepted! But can you blame yourself? Look at me. (Just kidding 😂)" },
         { label: "Rohan with Kuchuu", rohanResponse: "Haan theek hai, I am guilty. Tumhari photos dekhna, baatein yaad karna... totally obsessed." },
-        { label: "A mutual, incurable case of Roshika", rohanResponse: "Doctor ne bol diya hai: No cure available. Life sentence together!" }
+        { label: "Both of us, hopelessly and completely", rohanResponse: "Doctor ne bol diya hai: No cure available. Life sentence together!" }
       ]
     }
   ],
