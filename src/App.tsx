@@ -231,7 +231,7 @@ export default function App() {
 
   return (
     <div
-      className="fixed inset-0 w-screen h-screen overflow-hidden bg-[#FAF7F2] text-[#4A3B32] font-sans select-none flex flex-col justify-between"
+      className="fixed inset-0 w-full h-[100dvh] overflow-hidden bg-[#FAF7F2] text-[#4A3B32] font-sans select-none flex flex-col justify-between"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -264,7 +264,7 @@ export default function App() {
           />
 
           {/* Page-by-Page Main Fullscreen Viewport */}
-          <main className="w-full flex-1 pt-13 pb-16 px-2 sm:px-4 flex items-center justify-center relative overflow-y-auto overflow-x-hidden">
+          <main className="w-full flex-1 pt-13 pb-18 sm:pb-16 px-2 sm:px-4 flex items-center justify-center relative overflow-y-auto overflow-x-hidden">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentPage}
