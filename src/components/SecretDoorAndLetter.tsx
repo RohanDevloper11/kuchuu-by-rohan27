@@ -133,7 +133,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
         <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="w-full h-full flex flex-col justify-between items-center rounded-2xl starry-sky p-3 sm:p-5 text-center text-[#FAF7F2] border border-[#E8B4B8]/30 shadow-2xl relative overflow-hidden my-auto"
+          className="w-full h-full max-h-[calc(100vh-140px)] flex flex-col justify-between items-center rounded-2xl starry-sky p-3 sm:p-4 text-center text-[#FAF7F2] border border-[#E8B4B8]/30 shadow-2xl relative overflow-hidden my-auto"
         >
           {/* Subtle celestial background glow */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(232,180,184,0.12)_0%,transparent_70%)] pointer-events-none" />
@@ -182,7 +182,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
           )}
 
           {/* Sanctuary Top Progress Indicator */}
-          <div className="w-full max-w-sm mx-auto flex items-center justify-between text-[11px] font-mono text-[#F7D6C8]/70 px-2 pt-1 border-b border-[#FAF7F2]/10 pb-1.5 z-10">
+          <div className="w-full max-w-sm mx-auto flex items-center justify-between text-[11px] font-mono text-[#F7D6C8]/70 px-2 pt-1 border-b border-[#FAF7F2]/10 pb-1.5 z-10 shrink-0">
             <span className="uppercase tracking-widest text-[9px] text-[#A89F95]">
               Sanctuary of Vanshika
             </span>
@@ -212,7 +212,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
           </div>
 
           {/* Center: The Emotional Reveal Screen */}
-          <div className="w-full max-w-sm mx-auto flex-1 flex flex-col justify-center items-center my-auto px-2 relative z-10">
+          <div className="w-full max-w-sm mx-auto flex-1 min-h-0 flex flex-col justify-center items-center my-auto px-2 py-1 relative z-10 overflow-y-auto">
             <AnimatePresence mode="wait">
               {/* SCREEN 1: Vanshika... 🤍 */}
               {activeStep === 0 && (
@@ -431,12 +431,12 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
           </div>
 
           {/* Bottom Navigation for Sanctuary steps */}
-          <div className="w-full max-w-sm mx-auto flex items-center justify-between pt-1 border-t border-[#FAF7F2]/10 z-10 px-1">
+          <div className="w-full max-w-sm mx-auto flex items-center justify-between pt-2.5 pb-1.5 border-t border-[#FAF7F2]/15 z-20 px-2 shrink-0 bg-[#171320]/80 backdrop-blur-xs">
             {/* Back button */}
             {activeStep > 0 ? (
               <button
                 onClick={prevStep}
-                className="px-2.5 py-1 rounded-full text-xs font-mono text-[#FAF7F2]/70 hover:text-white flex items-center space-x-1 transition-colors active:scale-95"
+                className="px-3 py-1.5 rounded-full text-xs font-mono text-[#FAF7F2]/80 hover:text-white flex items-center space-x-1 transition-colors active:scale-95 cursor-pointer"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
                 <span>back</span>
@@ -444,7 +444,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
             ) : (
               <button
                 onClick={() => setIsDoorOpen(false)}
-                className="px-2.5 py-1 rounded-full text-[10px] font-mono text-[#A89F95] hover:text-[#FAF7F2] transition-colors"
+                className="px-3 py-1.5 rounded-full text-[11px] font-mono text-[#A89F95] hover:text-[#FAF7F2] transition-colors cursor-pointer"
               >
                 ← close door
               </button>
@@ -454,7 +454,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
             {activeStep === 0 && (
               <button
                 onClick={nextStep}
-                className="px-4 py-1.5 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-medium text-xs hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/20 active:scale-95"
+                className="px-4 py-2 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-semibold text-xs sm:text-sm hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/30 active:scale-95 cursor-pointer"
               >
                 <span>ek baat bolun? 🥺</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -464,7 +464,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
             {activeStep === 1 && (
               <button
                 onClick={nextStep}
-                className="px-4 py-1.5 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-medium text-xs hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/20 active:scale-95"
+                className="px-4 py-2 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-semibold text-xs sm:text-sm hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/30 active:scale-95 cursor-pointer"
               >
                 <span>aur pata hai? →</span>
               </button>
@@ -473,7 +473,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
             {activeStep === 2 && (
               <button
                 onClick={nextStep}
-                className="px-4 py-1.5 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-medium text-xs hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/20 active:scale-95"
+                className="px-4 py-2 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-semibold text-xs sm:text-sm hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/30 active:scale-95 cursor-pointer"
               >
                 <span>aage suno... →</span>
               </button>
@@ -482,7 +482,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
             {activeStep === 3 && (
               <button
                 onClick={nextStep}
-                className="px-4 py-1.5 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-medium text-xs hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/20 active:scale-95"
+                className="px-4 py-2 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-semibold text-xs sm:text-sm hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/30 active:scale-95 cursor-pointer"
               >
                 <span>ek aur baat... →</span>
               </button>
@@ -491,7 +491,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
             {activeStep === 4 && (
               <button
                 onClick={nextStep}
-                className="px-4 py-1.5 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-medium text-xs hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/20 active:scale-95"
+                className="px-4 py-2 rounded-full bg-[#E8B4B8] text-[#171320] font-sans font-semibold text-xs sm:text-sm hover:bg-[#F7D6C8] transition-all flex items-center space-x-1.5 shadow-md shadow-[#E8B4B8]/30 active:scale-95 cursor-pointer"
               >
                 <span>promise? 🤍 →</span>
               </button>
@@ -500,7 +500,7 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
             {activeStep === 5 && (
               <button
                 onClick={nextStep}
-                className="px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D9777F] to-[#C85A66] text-white font-sans font-medium text-xs hover:opacity-95 transition-all flex items-center space-x-1.5 shadow-md shadow-[#D9777F]/30 active:scale-95"
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-[#D9777F] to-[#C85A66] text-white font-sans font-semibold text-xs sm:text-sm hover:opacity-95 transition-all flex items-center space-x-1.5 shadow-md shadow-[#D9777F]/40 active:scale-95 cursor-pointer"
               >
                 <span>aur aakhri mein... ❤️</span>
               </button>
@@ -512,9 +512,9 @@ export const SecretDoorAndLetter: React.FC<SecretDoorAndLetterProps> = ({
                   romanticAudio.playPop();
                   setActiveStep(0);
                 }}
-                className="px-3 py-1 rounded-full border border-[#FAF7F2]/20 text-[#E8B4B8] text-[11px] font-mono hover:bg-[#FAF7F2]/10 transition-colors flex items-center space-x-1 active:scale-95"
+                className="px-3 py-1.5 rounded-full border border-[#FAF7F2]/20 text-[#E8B4B8] text-[11px] font-mono hover:bg-[#FAF7F2]/10 transition-colors flex items-center space-x-1 active:scale-95 cursor-pointer"
               >
-                <RotateCcw className="w-3 h-3" />
+                <RotateCcw className="w-3.5 h-3.5" />
                 <span>read again</span>
               </button>
             )}
